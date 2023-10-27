@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package candy;
+
+message CandyRequest {
+    string name = 1;
+    int32 quantity = 2;
+    float price = 3;
+}
+
+message CandyResponse {
+    string message = 1;
+}
+
+service CandyService {
+    rpc GetCandy(stream CandyRequest) returns (stream CandyResponse);
+}
